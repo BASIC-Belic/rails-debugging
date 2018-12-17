@@ -52,9 +52,9 @@ Because this bug involves the UI primarily (something is being displayed to the 
 
 We need to identify which view template is responsible for the Operating System Breakdown table. One way of figuring this out would be to look at the URL (e.g. "http://localhost:3000/events/1/levels") and match that up with a particular route, then use that to find the associated controller action and eventually view template.
 
-However, a simpler option would be to search through the whole project for the text "Class Levles for Ruby on Rails" or "Class Levles", because that's the literal text for the header on this page. You can search through your whole project in Atom by using Cmd + Shift + F.
+However, a simpler option would be to search through the whole project for the text "Class Levels for Ruby on Rails" or "Class Levels", because that's the literal text for the header on this page. You can search through your whole project in Atom by using Cmd + Shift + F.
 
-Note: Did "Class Levles for Ruby on Rails" produce any search results?
+Note: Did "Class Levels for Ruby on Rails" produce any search results?
 
 Either option should eventually have you end up at the file `app/views/events/levels.html.erb`.
 
@@ -63,7 +63,7 @@ From here we can find that line 4 is the part where we output the header.
 #### 4. Bug Fixing
 We've located the code that is most likely involved with our bug:
 ```erb
-<h2>Class Levles for <%= (@event.course || Course.find_by_name("RAILS")).title %></h2>
+<h2>Class Levels for <%= (@event.course || Course.find_by_name("RAILS")).title %></h2>
 ```
 
 Now time to implement the fix!
